@@ -1,0 +1,185 @@
+.background {
+    -fx-background-color: #303030;
+}
+
+.label {
+    -fx-font-size: 11.0pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: white;
+    -fx-opacity: 0.6;
+}
+
+.label-bright {
+    -fx-font-size: 11.0pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: white;
+    -fx-opacity: 1.0;
+}
+
+.label-header {
+    -fx-font-size: 40.0pt;
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: white;
+    -fx-opacity: 1.0;
+}
+
+.table-view {
+    -fx-base: #303030;
+    -fx-control-inner-background: #303030;
+    -fx-background-color: #303030;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5.0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 35.0;
+    -fx-border-width: 0.0 0.0 1.0 0.0;
+    -fx-background-color: transparent;
+    -fx-border-color: 
+        transparent
+        transparent
+        derive(-fx-base, 80.0%) 
+        transparent;
+    -fx-border-insets: 0.0 10.0 1.0 0.0;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 20.0pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+    -fx-opacity: 1.0;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}
+
+.split-pane:horizontal > .split-pane-divider {
+    -fx-border-color: transparent #303030 transparent #303030;
+    -fx-background-color: transparent, derive(#303030,20.0%);
+}
+
+.split-pane {
+    -fx-padding: 1.0 0.0 0.0 0.0;
+}
+
+.menu-bar {
+    -fx-background-color: derive(#303030,20.0%);
+}
+
+.context-menu {
+    -fx-background-color: derive(#303030,50.0%);
+}
+
+.menu-bar .label {
+    -fx-font-size: 13.0pt;
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: white;
+    -fx-opacity: 0.9;
+}
+
+.menu .left-container {
+    -fx-background-color: black;
+}
+
+.text-field {
+    -fx-font-size: 12.0pt;
+    -fx-font-family: "Segoe UI Semibold";
+}
+
+/* 
+ * Metro style Push Button
+ * Author: Pedro Duque Vieira
+ * http://pixelduke.wordpress.com/2012/10/23/jmetro-windows-8-controls-on-java/
+ */
+.button {
+    -fx-padding: 5.0 22.0 5.0 22.0;   
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 2.0;
+    -fx-background-radius: 0.0;
+    -fx-background-color: #303030;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 11.0pt;
+    -fx-text-fill: #d8d8d8;
+    -fx-background-insets: 0.0 0.0 0.0 0.0, 0.0, 1.0, 2.0;
+}
+
+.button-large {
+	-fx-font-size: 20.0pt;
+}
+
+.button:hover {
+    -fx-background-color: #3a3a3a;
+}
+
+.button:pressed, .button:default:hover:pressed {
+  -fx-background-color: white;
+  -fx-text-fill: #303030;
+}
+
+.button:focused {
+    -fx-border-color: white, white;
+    -fx-border-width: 1.0, 1.0;
+    -fx-border-style: solid, segments(1.0, 1.0);
+    -fx-border-radius: 0.0, 0.0;
+    -fx-border-insets: 1.0 1.0 1.0 1.0, 0.0;
+}
+
+.button:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #303030;
+    -fx-text-fill: white;
+}
+
+.button:default {
+    -fx-background-color: -fx-focus-color;
+    -fx-text-fill: #ffffff;
+}
+
+.button:default:hover {
+    -fx-background-color: derive(-fx-focus-color,30.0%);
+}
+
+.tab-pane {
+    -fx-tab-min-height: 3em;
+    /* 24 */
+
+    -fx-tab-max-height: 3em;
+    /* 24 */
+}
+.tab .tab-label {
+    -fx-background-color: transparent;
+    -fx-alignment: CENTER;
+    -fx-text-fill: #EBEAF0;
+}
+.tab {
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.0;
+    -fx-background-color: #17181B;
+}
+.tab:selected {
+    -fx-background-color: #21477A;
+}
+.tab:focused {
+    -fx-focus-color: transparent;
+}
+.tab {
+    -fx-padding: 0 30 0 30;
+}
+.tab-pane *.tab-header-background {
+    -fx-background-color: #17181B;
+}
+.tab-pane:top *.tab-header-area {
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.416667em 0.166667em 0.0em 0.0em;
+}
+.tab:selected .focus-indicator {
+    -fx-focus-color: transparent;
+    -fx-border-color: transparent;
+}
