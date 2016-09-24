@@ -1,7 +1,7 @@
 package br.com.dms.util;
 
 interface Identificadora {
-	String getNome();
+	String get();
 
 	String getTitulo();
 }
@@ -10,7 +10,7 @@ public enum Location implements Identificadora {
 
 	MATRIZ {
 		@Override
-		public String getNome() {
+		public String get() {
 			return "MatrizView";
 		}
 
@@ -23,8 +23,8 @@ public enum Location implements Identificadora {
 	},
 	SISTEMA_LINEAR {
 		@Override
-		public String getNome() {
-			return "Sistema Linear";
+		public String get() {
+			return "SistemaLinearView";
 		}
 
 		@Override
@@ -36,14 +36,28 @@ public enum Location implements Identificadora {
 	},
 	DETERMINANTE {
 		@Override
-		public String getNome() {
-			return "Determinantes";
+		public String get() {
+			return "DeterminanteView";
 		}
 
 		@Override
 		public String getTitulo() {
 			return "Cálculo de Determinantes";
 		}
+	},
+	MENU {
+
+		@Override
+		public String get() {
+			return "MenuView";
+		}
+
+		@Override
+		public String getTitulo() {
+			// essa página não vai ser aberta na aba.
+			return null;
+		}
+
 	};
 
 }

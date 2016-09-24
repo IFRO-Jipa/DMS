@@ -12,8 +12,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -33,17 +31,20 @@ public class MenuController implements Initializable {
 	}
 
 	private void criaAba(Location tipo) throws IOException {
-		Tab tab = new Tab(tipo.getNome());
-		BorderPane borderPane = new BorderPane(new AnchorPane(getPane(tipo)));
-		tab.setContent(borderPane);
-		tabPane.getTabs().add(tab);
+		Tab tab = new Tab(tipo.getTitulo());
+		tab.setClosable(true);
+		tab.setContent(getPane(tipo));
+
+		if (tabPane.getTabs().add(tab)) {
+			tabPane.getSelectionModel().select(tab);
+		}
 	}
 
-	private Pane getPane(Location tipo) throws IOException {
+	private AnchorPane getPane(Location tipo) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		URL resource = ViewLocation.getLocation(tipo);
 		loader.setLocation(resource);
-		return (AnchorPane) loader.load();
+		return loader.load();
 	}
 
 	/**
@@ -51,7 +52,6 @@ public class MenuController implements Initializable {
 	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
 	}
 
 }

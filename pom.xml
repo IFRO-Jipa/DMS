@@ -4,7 +4,26 @@
 	<groupId>br.com.ifro</groupId>
 	<artifactId>matriz</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<description>O software DetMatSis, produzido pelo IFRO, tem como principal objetivo auxiliar em sala de aula para o ensino médio, realizando cálculos pré-determinados. 
+
+No momento, o software conta com a realização de: 
+	- Operações com Matrizes;
+	- Cálculos de Determinante; 
+	- Resolução de Sistemas Lineares (apenas 2x2).
+
+Novidades da versão: 
+	- Interface remodelada e amigável;
+	- Reestruturação da exposição de valores.</description>
 	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -14,14 +33,24 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>com.zenjava</groupId>
+				<artifactId>javafx-maven-plugin</artifactId>
+				<version>8.4.0</version>
+				<configuration>
+					<vendor>IFRO</vendor>
+					<mainClass>br.com.dms.app.MenuApp</mainClass>
+					<appName>DetMatSis - Software para cálculos matemáticos</appName>
+				</configuration>
+			</plugin>
 		</plugins>
+
 	</build>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.guigarage</groupId>
-			<artifactId>flatter</artifactId>
-			<version>0.7</version>
-		</dependency>
-	</dependencies>
+	<name>DetMatSis - Software para cálculos matemáticos</name>
+	<inceptionYear>Instituto Federal de Educação, Ciência e Tecnologia de Rondônia - IFRO</inceptionYear>
+	<organization>
+		<name>Instituto Federal de Educação, Ciência e Tecnologia de Rondônia - IFRO</name>
+		<url>https://portal.ifro.edu.br</url>
+	</organization>
 </project>
