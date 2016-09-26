@@ -3,7 +3,9 @@ package br.com.dms.control;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.com.dms.model.operation.Operacao;
 import br.com.dms.util.AlertAdapter;
+import br.com.dms.util.view.TableViewUtil;
 import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +14,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.SplitPane;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
@@ -46,6 +49,9 @@ public class MatrizController implements Initializable {
 	private GridPane gridMatriz2;
 
 	@FXML
+	private TableView<String[]> tbResultado;
+
+	@FXML
 	private Button btnCalcular;
 
 	@FXML
@@ -67,28 +73,32 @@ public class MatrizController implements Initializable {
 
 	@FXML
 	private void handleMontaMatriz(ActionEvent event) {
-		if (isMatrizesConfiguradas() && hasOperacao()) {
+		try {
+			if (isMatrizesConfiguradas() && hasOperacao()) {
 
-			if (valoresValidosParaOperacao()) {
-				if (!this.container.isVisible()) {
-					this.container.setVisible(true);
-					this.container.getItems().remove(containerResultado);
+				if (valoresValidosParaOperacao()) {
+					if (!this.container.isVisible()) {
+						this.container.setVisible(true);
+						this.containerResultado.setVisible(false);
+					}
+
+					this.criaMatriz(this.gridMatriz1, Integer.parseInt(txtLinhaM1.getText()),
+							Integer.parseInt(txtColunaM1.getText()));
+					this.criaMatriz(this.gridMatriz2, Integer.parseInt(txtLinhaM2.getText()),
+							Integer.parseInt(txtColunaM2.getText()));
+
+					this.btnCalcular.setVisible(true);
 				}
 
-				this.criaMatriz(this.gridMatriz1, Integer.parseInt(txtLinhaM1.getText()),
-						Integer.parseInt(txtColunaM1.getText()));
-				this.criaMatriz(this.gridMatriz2, Integer.parseInt(txtLinhaM2.getText()),
-						Integer.parseInt(txtColunaM2.getText()));
+			} else {
+				AlertAdapter.warning("Dados necessários",
+						"Informe o tipo de operação e as dimensões das duas matrizes para prosseguir");
 
-				this.btnCalcular.setVisible(true);
+				this.container.setVisible(false);
+				this.btnCalcular.setVisible(false);
 			}
-
-		} else {
-			AlertAdapter.warning("Dados necessários",
-					"Informe o tipo de operação e as dimensões das duas matrizes para prosseguir");
-
-			this.container.setVisible(false);
-			this.btnCalcular.setVisible(false);
+		} catch (RuntimeException e) {
+			AlertAdapter.error("Falha inesperada", e);
 		}
 	}
 
@@ -106,15 +116,61 @@ public class MatrizController implements Initializable {
 				text.setId(String.format("%d,%d", row, column));
 
 				gridPane.add(text, column, row);
-				GridPane.setMargin(text, new Insets(5, 5, 5, 5));
-
+				GridPane.setMargin(text, new Insets(3, 3, 3, 3));
 			}
 		}
 	}
 
+	private void criaMatriz(TableView<String[]> grid, double[][] matriz) {
+		TableViewUtil.prepareTableView(grid, matriz, false);
+	}
+
 	@FXML
 	private void handleBtnCalcula(ActionEvent event) {
+		try {
+			this.containerResultado.setVisible(true);
 
+			double[][] matriz1 = extractMatrix(gridMatriz1);
+			double[][] matriz2 = extractMatrix(gridMatriz2);
+
+			if (valoresValidosParaOperacao()) {
+				Operacao operacao = new Operacao();
+				double[][] resultado = new double[0][0];
+				if (grupoOperacoes.getSelectedToggle() == rbOperacaoSoma) {
+					resultado = operacao.soma(matriz1, matriz2);
+				} else if (grupoOperacoes.getSelectedToggle() == rbOperacaoSubtracao) {
+					resultado = operacao.subtracao(matriz1, matriz2);
+				} else if (grupoOperacoes.getSelectedToggle() == rbOperacaoMultiplicacao) {
+					resultado = operacao.multiplicacao(matriz1, matriz2);
+				}
+				this.criaMatriz(this.tbResultado, resultado);
+			}
+		} catch (RuntimeException e) {
+			AlertAdapter.error("Erro inesperado", e);
+		}
+
+	}
+
+	@SuppressWarnings("deprecation")
+	private double[][] extractMatrix(GridPane grid) {
+
+		final int columns = grid.impl_getColumnCount();
+		final int rows = grid.impl_getRowCount() == 2 ? grid.impl_getRowCount() - 1 : grid.impl_getRowCount();
+
+		final double[][] valores = new double[columns][rows];
+		grid.getChildren().forEach(obj -> {
+			TextField txt = (TextField) obj;
+
+			String[] positions = txt.getId().split(",");
+			int linha = Integer.parseInt(positions[0]);
+			int coluna = Integer.parseInt(positions[1]);
+
+			if (!(linha == rows || coluna == columns)) {
+				valores[linha][coluna] = Double.parseDouble(txt.getText());
+			}
+		});
+
+		return valores;
 	}
 
 	private boolean valoresValidosParaOperacao() {
