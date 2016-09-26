@@ -1,3 +1,22 @@
+/* 
+ * Metro style 
+ * Author: Pedro Duque Vieira
+ * http://pixelduke.wordpress.com/2012/10/23/jmetro-windows-8-controls-on-java/
+ * 
+ * 
+ *     ************************ DETMATSIS *******************************
+ * 
+ * Adapted by: Leonardo Henrique de Braz, student at IFRO - Brazil.
+ * Organization: IFRO - Instituto Federal de Rondônia
+ * Coordinate: Ms. Windson Moreira Cândido - Master in Math by (insert organization here)
+ * Collaborators: Natan Damasceno Gomes and Natanael Sirqueira
+ */
+
+/*******************************************************************************
+ *                                                                             *
+ * Backgrounds		                                                           *
+ *                                                                             *
+ ******************************************************************************/
 .background {
     -fx-background-color: #303030;
 }
@@ -9,6 +28,12 @@
 .backgroud-purple {
 	-fx-background-color: #850CE8;
 }
+
+/*******************************************************************************
+ *                                                                             *
+ * Labels		                                                               *
+ *                                                                             *
+ ******************************************************************************/
 
 .label {
     -fx-font-size: 11.0pt;
@@ -52,6 +77,13 @@
     -fx-opacity: 1.0;	
 }
 
+
+/*******************************************************************************
+ *                                                                             *
+ * Table View and Table Row                                                	   *
+ *                                                                             *
+ ******************************************************************************/
+
 .table-view {
     -fx-base: #303030;
     -fx-control-inner-background: #303030;
@@ -89,14 +121,38 @@
     -fx-background-color: -fx-focus-color;
 }
 
+.table-row-cell:filled:selected { 
+  -fx-background: -fx-control-inner-background ;
+  -fx-background-color: -fx-table-cell-border-color, -fx-background ;
+  -fx-background-insets: 0.0, 0.0 0.0 1.0 0.0 ;
+  -fx-table-cell-border-color: derive(-fx-color, 5.0%);
+}
+.table-row-cell:odd:filled:selected {
+  -fx-background: -fx-control-inner-background-alt ;
+}
+
+
+
+/*******************************************************************************
+ *                                                                             *
+ * Split Pane                                                             	   *
+ *                                                                             *
+ ******************************************************************************/
+
+.split-pane {
+    -fx-padding: 1.0 0.0 0.0 0.0;
+}
+
 .split-pane:horizontal > .split-pane-divider {
     -fx-border-color: transparent #303030 transparent #303030;
     -fx-background-color: transparent, derive(#303030,20.0%);
 }
 
-.split-pane {
-    -fx-padding: 1.0 0.0 0.0 0.0;
-}
+/*******************************************************************************
+ *                                                                             *
+ * MenuBar, MenuItem and delivered                                       	   *
+ *                                                                             *
+ ******************************************************************************/
 
 .menu-bar {
     -fx-background-color: derive(#303030,20.0%);
@@ -117,16 +173,17 @@
     -fx-background-color: black;
 }
 
+
+/*******************************************************************************
+ *                                                                             *
+ * Text Fields			                                                	   *
+ *                                                                             *
+ ******************************************************************************/
 .text-field {
     -fx-font-size: 12.0pt;
     -fx-font-family: "Segoe UI Semibold";
 }
 
-/* 
- * Metro style Push Button
- * Author: Pedro Duque Vieira
- * http://pixelduke.wordpress.com/2012/10/23/jmetro-windows-8-controls-on-java/
- */
 .button {
     -fx-padding: 5.0 22.0 5.0 22.0;   
     -fx-border-color: #e2e2e2;
@@ -177,15 +234,10 @@
 
 /*******************************************************************************
  *                                                                             *
- * Button Primary                                                             *
+ * Button Primary                                                              *
  *                                                                             *
  ******************************************************************************/
 
-/* 
- * Metro style Push Button
- * Author: Pedro Duque Vieira
- * http://pixelduke.wordpress.com/2012/10/23/jmetro-windows-8-controls-on-java/
- */
 .button-primary {
     -fx-padding: 5.0 22.0 5.0 22.0;   
     -fx-border-color: #e2e2e2;
@@ -279,6 +331,11 @@
     -fx-focus-color: transparent;
     -fx-border-color: transparent;
 }
+ /* Remove header in background */
+.column-header-background { 
+	visibility: hidden; 
+	-fx-padding: -1.0em;
+}
 
 /*******************************************************************************
  *                                                                             *
@@ -321,25 +378,21 @@
    -fx-background-color: #212121;
 }
 
-.radio-button:disabled
-{
+.radio-button:disabled {
     -fx-opacity: 0.5;
 }
 
-.radio-button:disabled > .radio
-{
+.radio-button:disabled > .radio {
     -fx-background-color: #e6e6e6;
     -fx-border-color: #d9d9d9;
 }
 
-.radio-button:disabled:selected > .radio > .dot
-{
+.radio-button:disabled:selected > .radio > .dot {
     -fx-background-color: #484848;
 }
 
 
-.radio-button:focused > .radio
-{
+.radio-button:focused > .radio {
    -fx-background-color: #cfcfcf;
    -fx-background-radius: 1.0em; /* large value to make sure this remains circular */
    -fx-background-insets: 0.0;
@@ -353,37 +406,41 @@
    -fx-padding: 4.0px; /* 4 -- padding from outside edge to the inner black dot */
 }
 
-.radio-button:focused:hover > .radio
-{
+.radio-button:focused:hover > .radio {
     -fx-border-color: #e0e0e0, #e0e0e0;
     -fx-background-color: #e0e0e0;
 }
 
-.radio-button:focused:pressed > .radio
-{
+.radio-button:focused:pressed > .radio {
     -fx-border-color: white, white;
     -fx-background-color: white;
 }
 
-.radio-button:pressed > .radio
-{
+.radio-button:pressed > .radio {
     -fx-background-color: white;
     -fx-border-color: white;
 }
 
-.radio-button:pressed:selected > .radio > .dot
-{
+.radio-button:pressed:selected > .radio > .dot {
     -fx-background-color: black;
 }
 
-.column-header-background { visibility: hidden; -fx-padding: -1.0em; }
+/*******************************************************************************
+ *                                                                             *
+ * ScrollPane                                                                  *
+ *                                                                             *
+ ******************************************************************************/
 
 .scroll-pane {
-    -fx-background-color: #303030;
+    -fx-background-color: transparent,transparent;
 }
 
 .scroll-pane .corner {
     -fx-background-color: #4a4a4a;
-    -fx-background-radius: 0 0 0 0;
-    -fx-background-insets: 1 0 0 1; /* have the square on the corner be centered */
+    -fx-background-radius: 0.0 0.0 0.0 0.0;
+    -fx-background-insets: 1.0 0.0 0.0 1.0; /* have the square on the corner be centered */
+}
+
+.scroll-pane > .viewport {
+   -fx-background-color: transparent;
 }
