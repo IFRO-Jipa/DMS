@@ -3,14 +3,12 @@ package br.com.dms.control;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.com.dms.model.MatrizUtil;
 import br.com.dms.model.operation.Operacao;
 import br.com.dms.util.AlertAdapter;
-import br.com.dms.util.view.TableViewUtil;
-import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.SplitPane;
@@ -82,9 +80,9 @@ public class MatrizController implements Initializable {
 						this.containerResultado.setVisible(false);
 					}
 
-					this.criaMatriz(this.gridMatriz1, Integer.parseInt(txtLinhaM1.getText()),
+					MatrizUtil.criaMatriz(this.gridMatriz1, Integer.parseInt(txtLinhaM1.getText()),
 							Integer.parseInt(txtColunaM1.getText()));
-					this.criaMatriz(this.gridMatriz2, Integer.parseInt(txtLinhaM2.getText()),
+					MatrizUtil.criaMatriz(this.gridMatriz2, Integer.parseInt(txtLinhaM2.getText()),
 							Integer.parseInt(txtColunaM2.getText()));
 
 					this.btnCalcular.setVisible(true);
@@ -102,36 +100,13 @@ public class MatrizController implements Initializable {
 		}
 	}
 
-	private void criaMatriz(GridPane gridPane, int rows, int columns) {
-		gridPane.getChildren().clear();
-		for (int row = 0; row < rows; row++) {
-			for (int column = 0; column < columns; column++) {
-				TextField text = new TextField("0");
-				text.setPrefColumnCount(5);
-				text.textProperty().addListener((ChangeListener<String>) (observable, oldValue, newValue) -> {
-					if (!newValue.matches("\\d*")) {
-						text.setText(newValue.replaceAll("[^\\d]", ""));
-					}
-				});
-				text.setId(String.format("%d,%d", row, column));
-
-				gridPane.add(text, column, row);
-				GridPane.setMargin(text, new Insets(3, 3, 3, 3));
-			}
-		}
-	}
-
-	private void criaMatriz(TableView<String[]> grid, double[][] matriz) {
-		TableViewUtil.prepareTableView(grid, matriz, false);
-	}
-
 	@FXML
 	private void handleBtnCalcula(ActionEvent event) {
 		try {
 			this.containerResultado.setVisible(true);
 
-			double[][] matriz1 = extractMatrix(gridMatriz1);
-			double[][] matriz2 = extractMatrix(gridMatriz2);
+			double[][] matriz1 = MatrizUtil.extractMatrix(gridMatriz1);
+			double[][] matriz2 = MatrizUtil.extractMatrix(gridMatriz2);
 
 			if (valoresValidosParaOperacao()) {
 				Operacao operacao = new Operacao();
@@ -143,34 +118,12 @@ public class MatrizController implements Initializable {
 				} else if (grupoOperacoes.getSelectedToggle() == rbOperacaoMultiplicacao) {
 					resultado = operacao.multiplicacao(matriz1, matriz2);
 				}
-				this.criaMatriz(this.tbResultado, resultado);
+				MatrizUtil.criaMatriz(this.tbResultado, resultado);
 			}
 		} catch (RuntimeException e) {
 			AlertAdapter.error("Erro inesperado", e);
 		}
 
-	}
-
-	@SuppressWarnings("deprecation")
-	private double[][] extractMatrix(GridPane grid) {
-
-		final int columns = grid.impl_getColumnCount();
-		final int rows = grid.impl_getRowCount() == 2 ? grid.impl_getRowCount() - 1 : grid.impl_getRowCount();
-
-		final double[][] valores = new double[columns][rows];
-		grid.getChildren().forEach(obj -> {
-			TextField txt = (TextField) obj;
-
-			String[] positions = txt.getId().split(",");
-			int linha = Integer.parseInt(positions[0]);
-			int coluna = Integer.parseInt(positions[1]);
-
-			if (!(linha == rows || coluna == columns)) {
-				valores[linha][coluna] = Double.parseDouble(txt.getText());
-			}
-		});
-
-		return valores;
 	}
 
 	private boolean valoresValidosParaOperacao() {

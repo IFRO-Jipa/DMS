@@ -30,7 +30,7 @@ public enum Location implements Identificadora {
 		@Override
 		public String getTitulo() {
 			// TODO Auto-generated method stub
-			return "Resolução de Sistemas Lineares";
+			return "[BETA] Resolução de Sistemas Lineares";
 		}
 
 	},

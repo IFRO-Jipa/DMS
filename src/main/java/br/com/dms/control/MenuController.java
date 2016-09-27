@@ -30,6 +30,18 @@ public class MenuController implements Initializable {
 
 	}
 
+	@FXML
+	public void abreDeterminante() throws IOException {
+		criaAba(Location.DETERMINANTE);
+
+	}
+	
+	@FXML
+	
+	public void abreSistemas() throws IOException {
+		criaAba(Location.SISTEMA_LINEAR);
+	}
+
 	private void criaAba(Location tipo) throws IOException {
 		Tab tab = new Tab(tipo.getTitulo());
 		tab.setClosable(true);

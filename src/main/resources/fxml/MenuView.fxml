@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/Default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.dms.control.MenuController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="483.0" prefWidth="703.0" stylesheets="@../css/Default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.dms.control.MenuController">
 	<bottom>
 		<StackPane alignment="TOP_RIGHT" prefHeight="23.0" prefWidth="600.0" styleClass="background" BorderPane.alignment="CENTER">
 			<children>
@@ -18,7 +18,7 @@
 						<Insets right="5.0" />
 					</StackPane.margin>
 				</Label>
-				<Label styleClass="label-bright" text="Instituto Federal de Rondônia - IFRO" StackPane.alignment="TOP_LEFT">
+				<Label styleClass="label-bright" text="Instituto Federal de Rondônia - IFRO, Campus Ji-Paraná" StackPane.alignment="TOP_LEFT">
 					<StackPane.margin>
 						<Insets left="5.0" />
 					</StackPane.margin>
@@ -27,7 +27,7 @@
 		</StackPane>
 	</bottom>
 	<center>
-		<TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" styleClass="label-bright" BorderPane.alignment="CENTER">
+		<TabPane fx:id="tabPane" prefHeight="377.0" prefWidth="655.0" styleClass="label-bright" BorderPane.alignment="CENTER">
 			<tabs>
 				<Tab closable="false" text="Menu Principal">
 					<content>
@@ -49,12 +49,12 @@
 														<Insets top="7.0" />
 													</VBox.margin>
 												</Button>
-												<Button mnemonicParsing="false" prefHeight="150.0" prefWidth="700.0" styleClass="button-large" text="Cálculo de Determinantes" textAlignment="CENTER" wrapText="true">
+												<Button mnemonicParsing="false" onAction="#abreDeterminante" prefHeight="150.0" prefWidth="700.0" styleClass="button-large" text="Cálculo de Determinantes" textAlignment="CENTER" wrapText="true">
 													<VBox.margin>
 														<Insets top="7.0" />
 													</VBox.margin>
 												</Button>
-												<Button mnemonicParsing="false" prefHeight="150.0" prefWidth="700.0" styleClass="button-large" text="Resoluçao de Sistemas Lineares" textAlignment="CENTER" wrapText="true">
+												<Button mnemonicParsing="false" onAction="#abreSistemas" prefHeight="150.0" prefWidth="700.0" styleClass="button-large" text="Resolução de Sistemas Lineares" textAlignment="CENTER" wrapText="true">
 													<VBox.margin>
 														<Insets top="7.0" />
 													</VBox.margin>
@@ -64,6 +64,17 @@
 									</children>
 								</StackPane>
 							</center>
+                     <bottom>
+                        <StackPane prefHeight="35.0" prefWidth="703.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button defaultButton="true" mnemonicParsing="false" text="Créditos" StackPane.alignment="BOTTOM_LEFT">
+                                 <StackPane.margin>
+                                    <Insets bottom="3.0" left="5.0" top="5.0" />
+                                 </StackPane.margin>
+                              </Button>
+                           </children>
+                        </StackPane>
+                     </bottom>
 						</BorderPane>
 					</content>
 				</Tab>
