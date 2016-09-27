@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="490.0" prefWidth="922.0" styleClass="background" stylesheets="@../css/Default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.dms.control.SistemaLinearController">
+	<children>
+		<BorderPane layoutX="147.0" layoutY="23.0" prefHeight="445.0" prefWidth="670.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<top>
+				<AnchorPane prefHeight="133.0" prefWidth="719.0" styleClass="background-blue" BorderPane.alignment="CENTER">
+					<children>
+						<Label layoutX="12.0" layoutY="14.0" prefHeight="65.0" prefWidth="655.0" styleClass="label-h1" text="Cálculo de Sistemas Lineares" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="14.0" />
+						<Label layoutX="14.0" layoutY="78.0" prefHeight="45.0" prefWidth="696.0" styleClass="label-h3" text="Infelizmente, só é possível realizar o cálculo de sistemas 2x2 (por enquanto)." wrapText="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="78.0" />
+					</children>
+				</AnchorPane>
+			</top>
+			<center>
+				<FlowPane prefHeight="357.0" prefWidth="795.0" BorderPane.alignment="CENTER">
+					<children>
+						<GridPane fx:id="gridValores">
+							<columnConstraints>
+								<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+								<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+							</columnConstraints>
+							<rowConstraints>
+								<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+								<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+								<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+							</rowConstraints>
+							<FlowPane.margin>
+								<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+							</FlowPane.margin>
+						</GridPane>
+						<Button defaultButton="true" mnemonicParsing="false" onAction="#handleButtonCalcula" prefHeight="52.0" prefWidth="138.0" text="Classificar">
+							<FlowPane.margin>
+								<Insets bottom="10.0" right="10.0" />
+							</FlowPane.margin>
+						</Button>
+						<VBox fx:id="paneResultados" prefHeight="100.0" prefWidth="544.0">
+							<children>
+								<HBox fx:id="paneClassificacao" prefHeight="31.0" prefWidth="276.0">
+									<children>
+										<Label styleClass="label-h3" text="Classificação:" />
+										<Label fx:id="txtClassificacao" styleClass="label-h3" text="Label">
+											<HBox.margin>
+												<Insets left="10.0" />
+											</HBox.margin>
+										</Label>
+									</children>
+								</HBox>
+								<HBox fx:id="paneX" prefHeight="31.0" prefWidth="276.0">
+									<children>
+										<Label styleClass="label-h3" text="Valor para X :" />
+										<Label fx:id="txtValorX" styleClass="label-h3" text="Label">
+											<HBox.margin>
+												<Insets left="10.0" />
+											</HBox.margin>
+										</Label>
+									</children>
+								</HBox>
+								<HBox fx:id="paneY" prefHeight="31.0" prefWidth="276.0">
+									<children>
+										<Label styleClass="label-h3" text="Valor para Y :" />
+										<Label fx:id="txtValorY" styleClass="label-h3" text="Label">
+											<HBox.margin>
+												<Insets left="10.0" />
+											</HBox.margin>
+										</Label>
+									</children>
+								</HBox>
+                        <HBox fx:id="paneZ" prefHeight="31.0" prefWidth="276.0">
+                           <children>
+                              <Label styleClass="label-h3" text="Valor para Z :" />
+                              <Label fx:id="txtValorZ" styleClass="label-h3" text="Label">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+							</children>
+							<FlowPane.margin>
+								<Insets top="10.0" />
+							</FlowPane.margin>
+						</VBox>
+					</children>
+				</FlowPane>
+			</center>
+		</BorderPane>
+	</children>
+</AnchorPane>

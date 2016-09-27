@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import com.guigarage.flatterfx.controls.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.dms.control.DeterminanteController">
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="736.0" styleClass="background" stylesheets="@../css/Default.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      	<top>
+      		<AnchorPane prefHeight="164.0" prefWidth="722.0" styleClass="background-blue" BorderPane.alignment="CENTER">
+      			<children>
+      				<Label layoutX="14.0" layoutY="18.0" styleClass="label-h1" text="Cálculo de Determinantes" />
+      				<Label layoutX="14.0" layoutY="102.0" styleClass="label-h3" text="1º - Criar matriz quadrada de ordem" />
+      				<TextField fx:id="txtOrdemMatriz" alignment="CENTER" layoutX="343.0" layoutY="96.0" prefHeight="37.0" prefWidth="77.0" />
+      				<Button fx:id="btnMontar" defaultButton="true" layoutX="435.0" layoutY="94.0" mnemonicParsing="false" onAction="#handleButtonMontar" prefHeight="41.0" prefWidth="109.0" text="Montar" />
+      				<Button fx:id="btnCalcular" layoutX="559.0" layoutY="94.0" mnemonicParsing="false" onAction="#handleButtonCalcular" prefHeight="41.0" prefWidth="109.0" text="Calcular" />
+      			</children>
+      		</AnchorPane>
+      	</top>
+      	<center>
+      		<SplitPane fx:id="container" dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" styleClass="background" BorderPane.alignment="CENTER">
+      			<items>
+      				<StackPane prefHeight="150.0" prefWidth="200.0">
+      					<children>
+      						<ScrollPane prefViewportHeight="239.0" prefViewportWidth="717.0">
+      							<content>
+      								<GridPane fx:id="gridValores">
+      									<columnConstraints>
+      										<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      										<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      									</columnConstraints>
+      									<rowConstraints>
+      										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      									</rowConstraints>
+      								</GridPane>
+      							</content>
+      						</ScrollPane>
+      					</children>
+      				</StackPane>
+      				<AnchorPane prefHeight="239.0" prefWidth="400.0">
+      					<children>
+      						<Label fx:id="labelDeterminante" layoutX="14.0" layoutY="24.0" styleClass="label-h3" text="Determinante:" />
+      						<Label fx:id="valorDeterminante" alignment="TOP_LEFT" layoutX="147.0" layoutY="24.0" prefHeight="74.0" prefWidth="211.0" styleClass="label-h3" text="1234567890123" wrapText="true" AnchorPane.leftAnchor="147.0" AnchorPane.rightAnchor="6.0" />
+      						<Label layoutX="14.0" layoutY="100.0" styleClass="label-h3" text="Explicação:" visible="false" />
+      						<Label layoutX="14.0" layoutY="125.0" prefHeight="96.0" prefWidth="336.0" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut reprehenderit consectetur natus ipsum veniam architecto odio odit minus magnam unde! Molestiae ab possimus tenetur soluta incidunt, repellendus iure animi inventore rerum impedit pariatur sit fugit magni, mollitia ullam ad eligendi quaerat, minus quidem dolor? Enim repellendus ullam nam, officia beatae necessitatibus cumque voluptatem. Deserunt eos, magnam. Vitae eaque doloremque officiis numquam quasi iusto enim tempora necessitatibus fugit. Corrupti sit temporibus iusto laboriosam odio necessitatibus animi earum molestiae voluptatibus porro numquam, ipsam deleniti, recusandae cumque atque vel et. A dolore sapiente provident cumque, deserunt dolorum praesentium tempora nesciunt ratione, laudantium officia quaerat! Rem aut inventore nisi velit corporis est ex quia rerum, accusamus porro molestiae, quaerat. Dolores, ut. Quos, reprehenderit odit animi magni beatae nostrum accusamus rerum aut quasi pariatur ipsam neque qui sit. Dolor, alias, a? Iusto adipisci veniam dicta, odio deleniti provident nihil suscipit aliquam saepe, aperiam officia commodi ipsum ipsa voluptas ut nisi tempore! Quia amet molestias voluptatibus laborum. Adipisci similique, laudantium iusto, quaerat explicabo nam quibusdam placeat ut, voluptatem voluptatibus deserunt necessitatibus omnis! Itaque dolor architecto dolore sapiente nisi iste, inventore iure eaque ratione dolorem quod dicta molestias ex ut laborum suscipit non, nostrum provident eius laboriosam perspiciatis quidem ipsum doloremque cum alias. Ipsum soluta, debitis totam fugiat voluptatem alias consectetur aspernatur nam reiciendis repellendus molestiae reprehenderit quaerat quasi quos voluptate, quia, ad voluptates cum quae blanditiis fugit. Libero alias officiis dicta neque explicabo, ipsum voluptatibus quo, eius perspiciatis autem facilis nihil at expedita? Asperiores reprehenderit quaerat eveniet earum modi cupiditate nam rem assumenda deserunt delectus. Quisquam ratione, ipsa ipsum animi quidem, laboriosam dolorum esse labore libero fugit voluptatibus? Enim rerum a ipsum deleniti doloremque dolorem perferendis totam, expedita delectus optio molestiae in neque, veniam, est dignissimos fuga nobis. Commodi asperiores, distinctio nemo quis eveniet soluta id!" visible="false" wrapText="true" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="125.0" />
+      					</children>
+      				</AnchorPane>
+      			</items>
+      		</SplitPane>
+      	</center>
+      </BorderPane>
+   </children>
+</AnchorPane>
