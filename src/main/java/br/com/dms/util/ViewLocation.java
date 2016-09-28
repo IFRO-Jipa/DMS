@@ -6,7 +6,7 @@ public class ViewLocation {
 
 	public static URL getLocation(Location location) {
 		return ViewLocation.class.getClassLoader()
-				.getResource(String.format("main/resources/fxml/%s.fxml", location.get().trim()));
+				.getResource(String.format("fxml/%s.fxml", location.get().trim()));
 	}
 
 }
