@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="517.0" styleClass="background" stylesheets="@../../../css/Default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="76.0" fitWidth="82.0" layoutX="21.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../imgs/error.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="122.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label-h1" text="Valores Inválidos" wrappingWidth="379.34375" />
+      <Text fill="#fcfcfc" layoutX="128.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label-bright" text="Defina a ordem da matriz quadrada para calcular o determinante" textAlignment="JUSTIFY" wrappingWidth="356.0" />
+      <Separator layoutX="128.0" layoutY="78.0" prefHeight="3.0" prefWidth="356.0" />
+   </children>
+</AnchorPane>

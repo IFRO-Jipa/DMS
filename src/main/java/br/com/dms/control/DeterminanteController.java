@@ -52,7 +52,8 @@ public class DeterminanteController implements Initializable {
 			labelDeterminante.setVisible(false);
 			this.btnCalcular.setVisible(true);
 		} else {
-			AlertAdapter.error("Dados obrigatórios", "Defina a ordem da matriz quadrada para calcular o determinante");
+			AlertAdapter.ordemInvalidaDeterminante();
+//			AlertAdapter.error("Dados obrigatórios", "Defina a ordem da matriz quadrada para calcular o determinante");
 		}
 	}
 

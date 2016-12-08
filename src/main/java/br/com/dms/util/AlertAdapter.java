@@ -6,13 +6,19 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Optional;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * Classe responsável por manipular os alertas (<code>Alert</code>) gerados pelo
@@ -141,6 +147,41 @@ public class AlertAdapter {
 
 	public static void dataIntegrityViolation(String mensagem) {
 		error(ALERT_ERRO_REGISTRO_BASE, mensagem);
+	}
+
+	private static void mensagemPersonalizada(String caminho) {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(AlertAdapter.class.getClassLoader().getResource(caminho));
+			AnchorPane pane = loader.load();
+			Stage dialog = new Stage();
+			dialog.initStyle(StageStyle.UTILITY);
+			dialog.initModality(Modality.APPLICATION_MODAL);
+			dialog.setTitle("[ATENÇÃO] - Aviso do sistema");
+			Scene scene = new Scene(pane);
+
+			dialog.setScene(scene);
+			beep();
+			dialog.showAndWait();
+		} catch (IOException e) {
+			error("Erro inesperado.\n", e);
+		}
+	}
+
+	public static void ordemInvalidaSomaSubtracao() {
+		mensagemPersonalizada("fxml/messages/matriz/OrdemInvalidaSoma.fxml");
+	}
+
+	public static void ordemInvalidaMultiplicacao() {
+		mensagemPersonalizada("fxml/messages/matriz/OrdemInvalidaMultiplicacao.fxml");
+	}
+
+	public static void faltaOperacaoDimensao() {
+		mensagemPersonalizada("fxml/messages/matriz/FaltaDimensaoPane.fxml");
+	}
+
+	public static void ordemInvalidaDeterminante() {
+		mensagemPersonalizada("fxml/messages/determinante/OrdemInvalidaPane.fxml");
 	}
 
 }

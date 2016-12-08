@@ -89,6 +89,7 @@ public class MatrizController implements Initializable {
 				}
 
 			} else {
+				AlertAdapter.faltaOperacaoDimensao();
 				AlertAdapter.warning("Dados necessários",
 						"Informe o tipo de operação e as dimensões das duas matrizes para prosseguir");
 
@@ -147,10 +148,13 @@ public class MatrizController implements Initializable {
 		if (linhaM2 == colunaM1) {
 			return true;
 		} else {
-			AlertAdapter.error("Valores inválidos",
-					"Para realizar uma multiplicação, o número de colunas da Matriz 1 deve ser "
-							+ "igual ao número de linhas da Matriz 2.\n\nExemplo:\n\t3x2 2x3 -> VÁLIDO"
-							+ "\n\t3x4 3x4 -> INVÁLIDO");
+			AlertAdapter.ordemInvalidaMultiplicacao();
+			// AlertAdapter.error("Valores inválidos",
+			// "Para realizar uma multiplicação, o número de colunas da Matriz 1
+			// deve ser "
+			// + "igual ao número de linhas da Matriz 2.\n\nExemplo:\n\t3x2 2x3
+			// -> VÁLIDO"
+			// + "\n\t3x4 3x4 -> INVÁLIDO");
 			return false;
 		}
 	}
@@ -165,8 +169,10 @@ public class MatrizController implements Initializable {
 		if ((colunaM1 == colunaM2) && (linhaM1 == linhaM2)) {
 			return true;
 		} else {
-			AlertAdapter.error("Valores inválidos",
-					"Para realizar uma soma ou subtração, as matrizes devem possuir a mesma ordem");
+			AlertAdapter.ordemInvalidaSomaSubtracao();
+			// AlertAdapter.error("Valores inválidos",
+			// "Para realizar uma soma ou subtração, as matrizes devem possuir a
+			// mesma ordem");
 			return false;
 		}
 	}
