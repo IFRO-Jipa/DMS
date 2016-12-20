@@ -1,4 +1,4 @@
-package br.com.dms.model;
+package br.com.dms.util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ public class MatrizUtil {
 			for (int column = 0; column < columns; column++) {
 				TextField text = new TextField("0");
 				text.setPrefColumnCount(5);
-				text.textProperty().addListener(TextFieldValidation.getValidatorForNumbers(text));
+				text.textProperty().addListener(TextFieldValidation.getValidatorForIntegerNumbers(text));
 
 				text.setId(String.format("%d,%d", row, column));
 

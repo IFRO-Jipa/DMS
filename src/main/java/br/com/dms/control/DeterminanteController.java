@@ -3,11 +3,11 @@ package br.com.dms.control;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import br.com.dms.model.MatrizUtil;
 import br.com.dms.model.determinant.Chio;
 import br.com.dms.model.determinant.Determinante;
 import br.com.dms.model.determinant.Jacobi;
 import br.com.dms.util.AlertAdapter;
+import br.com.dms.util.MatrizUtil;
 import br.com.dms.util.view.TextFieldValidation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -53,7 +53,8 @@ public class DeterminanteController implements Initializable {
 			this.btnCalcular.setVisible(true);
 		} else {
 			AlertAdapter.ordemInvalidaDeterminante();
-//			AlertAdapter.error("Dados obrigatórios", "Defina a ordem da matriz quadrada para calcular o determinante");
+			// AlertAdapter.error("Dados obrigatórios", "Defina a ordem da
+			// matriz quadrada para calcular o determinante");
 		}
 	}
 
@@ -127,7 +128,8 @@ public class DeterminanteController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		this.container.setVisible(false);
 		this.btnCalcular.setVisible(false);
-		this.txtOrdemMatriz.textProperty().addListener(TextFieldValidation.getValidatorForNumbers(this.txtOrdemMatriz));
+		this.txtOrdemMatriz.textProperty()
+				.addListener(TextFieldValidation.getValidatorForNaturalNumbers(this.txtOrdemMatriz));
 	}
 
 }

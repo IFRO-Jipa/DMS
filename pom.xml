@@ -40,7 +40,7 @@ Novidades da versão:
 				<configuration>
 					<vendor>IFRO - Ji-Paraná</vendor>
 					<mainClass>br.com.dms.app.MenuApp</mainClass>
-					<appName>DetMatSis - Software para cálculos matemáticos</appName>
+					<appName>DetMatSis</appName>
 				</configuration>
 			</plugin>
 		</plugins>

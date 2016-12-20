@@ -3,9 +3,10 @@ package br.com.dms.control;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import br.com.dms.model.MatrizUtil;
 import br.com.dms.model.operation.Operacao;
 import br.com.dms.util.AlertAdapter;
+import br.com.dms.util.MatrizUtil;
+import br.com.dms.util.view.TextFieldValidation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -90,8 +91,8 @@ public class MatrizController implements Initializable {
 
 			} else {
 				AlertAdapter.faltaOperacaoDimensao();
-				AlertAdapter.warning("Dados necessários",
-						"Informe o tipo de operação e as dimensões das duas matrizes para prosseguir");
+//				AlertAdapter.warning("Dados necessários",
+//						"Informe o tipo de operação e as dimensões das duas matrizes para prosseguir");
 
 				this.container.setVisible(false);
 				this.btnCalcular.setVisible(false);
@@ -182,6 +183,15 @@ public class MatrizController implements Initializable {
 		this.btnCalcular.setVisible(false);
 		initGrupoOperacoes();
 		initButtonMontar();
+		configTextFields();
+	}
+
+	private void configTextFields() {
+		this.txtColunaM1.textProperty().addListener(TextFieldValidation.getValidatorForNaturalNumbers(txtColunaM1));
+		this.txtColunaM2.textProperty().addListener(TextFieldValidation.getValidatorForNaturalNumbers(txtColunaM2));
+		this.txtLinhaM1.textProperty().addListener(TextFieldValidation.getValidatorForNaturalNumbers(txtLinhaM1));
+		this.txtLinhaM2.textProperty().addListener(TextFieldValidation.getValidatorForNaturalNumbers(txtLinhaM2));
+		
 	}
 
 	private void initContainers() {

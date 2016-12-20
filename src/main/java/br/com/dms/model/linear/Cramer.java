@@ -7,16 +7,19 @@ public class Cramer {
 	public static double[] calc2x2(double mat[][]) {
 		double result[] = null;
 		double detX[][] = new double[2][2];
+		
 		double detY[][] = new double[2][2];
 		double detTotal[][] = new double[2][2];
-		detX[0][0] = mat[1][0];
-		detX[0][1] = mat[1][1];
-		detX[1][0] = mat[1][0];
+		System.out.println(detX);
+		System.out.println(detY);
+		detX[0][0] = mat[0][2];
+		detX[1][0] = mat[1][2];
+		detX[0][1] = mat[0][1];
 		detX[1][1] = mat[1][1];
 		detY[0][0] = mat[0][0];
-		detY[0][1] = mat[0][1];
+		detY[0][1] = mat[0][2];
 		detY[1][0] = mat[1][0];
-		detY[1][1] = mat[1][1];
+		detY[1][1] = mat[1][2];
 		detTotal[0][0] = mat[0][0];
 		detTotal[0][1] = mat[0][1];
 		detTotal[1][0] = mat[1][0];

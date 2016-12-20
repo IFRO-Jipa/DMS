@@ -3,10 +3,10 @@ package br.com.dms.control;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import br.com.dms.model.MatrizUtil;
 import br.com.dms.model.linear.ClassificadorDeSistemas;
 import br.com.dms.model.linear.Cramer;
 import br.com.dms.util.AlertAdapter;
+import br.com.dms.util.MatrizUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -50,6 +50,8 @@ public class SistemaLinearController implements Initializable {
 	private void handleButtonCalcula() {
 		double[][] valores = MatrizUtil.extractMatrix(gridValores);
 
+		mostraValoresXYZ(true);
+
 		if (valores.length == 2) {
 			if (ClassificadorDeSistemas.classifica2x2(valores) == 1) {
 				double result[] = Cramer.calc2x2(valores);
@@ -69,6 +71,7 @@ public class SistemaLinearController implements Initializable {
 				this.paneResultados.setVisible(true);
 				this.paneClassificacao.setVisible(true);
 				this.txtClassificacao.setText("Sistema impossível (SI)");
+				mostraValoresXYZ(false);
 			} else {
 				this.paneResultados.setVisible(true);
 				this.paneClassificacao.setVisible(true);
@@ -93,6 +96,12 @@ public class SistemaLinearController implements Initializable {
 					"Lamentamos o ocorrido, mas só é feita a classificação de sistemas 2x2 nesta versão.\n\n\tEstamos trabalhando para o suporte completo.");
 		}
 
+	}
+
+	private void mostraValoresXYZ(boolean flag) {
+		this.txtValorX.setVisible(flag);
+		this.txtValorY.setVisible(flag);
+		this.txtValorZ.setVisible(flag);
 	}
 
 	@Override
