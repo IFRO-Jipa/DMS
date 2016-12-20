@@ -9,9 +9,13 @@ import br.com.dms.util.ViewLocation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -41,6 +45,23 @@ public class MenuController implements Initializable {
 	public void abreSistemas() throws IOException {
 		criaAba(Location.SISTEMA_LINEAR);
 	}
+	
+	@FXML
+	private void abreCreditos() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(ViewLocation.getLocation(Location.CREDITOS));
+		BorderPane pane = loader.load();
+
+		Stage stage = new Stage();
+		stage.setScene(new Scene(pane));
+		stage.setMaximized(false);
+		stage.setResizable(false);
+		stage.setTitle(Location.CREDITOS.getTitulo());
+		stage.initModality(Modality.APPLICATION_MODAL);
+		stage.centerOnScreen();
+		stage.showAndWait();
+	}
+	
 
 	private void criaAba(Location tipo) throws IOException {
 		Tab tab = new Tab(tipo.getTitulo());

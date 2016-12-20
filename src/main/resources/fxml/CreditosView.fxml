@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="651.0" styleClass="background" stylesheets="@../css/Default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<top>
+		<AnchorPane prefHeight="114.0" prefWidth="600.0" styleClass="background" BorderPane.alignment="CENTER">
+			<children>
+				<Label layoutX="9.0" layoutY="12.0" styleClass="label-h1" text="DETMATSIS 2.0" />
+				<Label layoutX="10.0" layoutY="76.0" text="Determinantes, Matrizes e Sistemas Lineares" />
+			</children>
+		</AnchorPane>
+	</top>
+	<center>
+		<AnchorPane prefHeight="417.0" prefWidth="651.0" styleClass="background-blue" BorderPane.alignment="CENTER">
+			<children>
+				<Label layoutX="10.0" layoutY="9.0" styleClass="label-h3" text="Resumo" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="9.0" />
+				<Label alignment="TOP_LEFT" layoutX="12.0" layoutY="40.0" prefHeight="130.0" prefWidth="581.0" text="O estudo das matrizes atualmente é visto como uma sistemática de procedimentos que se assemelham a um algoritmo bem determinado, isso também vale para os sistemas lineares. Para o curso Técnico em informática associar a formatação de algoritmos e o estudo de matrizes e sistemas lineares permite aproximar a matemática, de fato, no que se refere a conteúdo (teoria) e prática (aplicação) levando o estudo sistemático a outro nível." textAlignment="JUSTIFY" wrapText="true" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="40.0">
+					<font>
+						<Font name="System Bold" size="12.0" />
+					</font>
+				</Label>
+				<Label layoutX="14.0" layoutY="231.0" styleClass="label-h3" text="Autores" AnchorPane.bottomAnchor="164.0" AnchorPane.leftAnchor="14.0" />
+				<Label layoutX="38.0" layoutY="260.0" text="Leonardo Henrique de Braz" AnchorPane.bottomAnchor="138.0" AnchorPane.leftAnchor="38.0" />
+				<Label layoutX="38.0" layoutY="281.0" text="Rafael A. Fuhrmann" AnchorPane.bottomAnchor="117.0" AnchorPane.leftAnchor="38.0" />
+				<Label layoutX="267.0" layoutY="231.0" styleClass="label-h3" text="Apoio" AnchorPane.bottomAnchor="164.0" AnchorPane.rightAnchor="331.0" />
+				<Label layoutX="38.0" layoutY="302.0" text="Rânila E. G. C. M. Pereira" AnchorPane.bottomAnchor="96.0" AnchorPane.leftAnchor="38.0" />
+				<Label layoutX="14.0" layoutY="194.0" styleClass="label-h3" text="Orientação: Profº. Msc. Windson Moreira Cândido " AnchorPane.bottomAnchor="201.0" AnchorPane.leftAnchor="14.0" />
+				<ImageView fitHeight="158.0" fitWidth="402.0" layoutX="267.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="5.425750732421875">
+					<image>
+						<Image url="@../imgs/logo-ifro.png" />
+					</image>
+				</ImageView>
+			</children>
+		</AnchorPane>
+	</center>
+</BorderPane>

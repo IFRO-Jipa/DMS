@@ -21,6 +21,7 @@ public enum Location implements Identificadora {
 		}
 
 	},
+
 	SISTEMA_LINEAR {
 		@Override
 		public String get() {
@@ -56,6 +57,19 @@ public enum Location implements Identificadora {
 		public String getTitulo() {
 			// essa página não vai ser aberta na aba.
 			return null;
+		}
+
+	},
+	CREDITOS {
+
+		@Override
+		public String get() {
+			return "CreditosView";
+		}
+
+		@Override
+		public String getTitulo() {
+			return "Créditos - DetMatSis";
 		}
 
 	};
